@@ -70,6 +70,8 @@ module Git
       arr_opts << '--recursive' if opts[:recursive]
       arr_opts << "--mirror" if opts[:mirror]
 
+      arr_opts << '--single-branch' if opts[:single_branch]
+      arr_opts << '--verbose' if opts[:verbose]
       arr_opts << '--'
 
       arr_opts << repository
@@ -111,6 +113,10 @@ module Git
       arr_opts << '--contains' if opts[:contains]
       arr_opts << '--debug' if opts[:debug]
       arr_opts << '--long' if opts[:long]
+      arr_opts << '--single-branch' if opts[:single_branch]
+      arr_opts << '--verbose' if opts[:verbose]
+      arr_opts << '--depth' << opts[:depth].to_i if opts[:depth] && opts[:depth].to_i > 0
+
       arr_opts << '--always' if opts[:always]
       arr_opts << '--exact-match' if opts[:exact_match] || opts[:"exact-match"]
 
